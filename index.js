@@ -1,29 +1,23 @@
 console.log("index.js called");
 
-function delete_id(myvar)
-{	
-	var id=myvar;
+function mydelete(id)
+{
 	console.log(id);
 	
-	console.log(typeof(myvar));
+	$.ajax(
+	{
+    url: 'delete_product.php',
+    type: 'GET',
+    data: 'id=' + id,
 
-	
-	console.log("myvar 2is: ",myvar);
-	$.ajax({
+    success: function(result)
+     {
+     	console.log("ajax call was successfull");   
+     	
+            window.location.href='index.php';
+        
+     }
+	});
 
-		type:"POST",
-		url:"delete_product.php",
-		data:{"id": myvar},
-		success:function(result){console.log("Be Happy");},
-		error:function(){console.log("error occured in ajax call----");}
 
-	}).done(function(respond)
-		{
-			console.log("Record deleted successfully")
-		});
-}
-
-function edit_id(myvar)
-{
-	console.log("id passed is: ",myvar);
 }

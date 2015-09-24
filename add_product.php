@@ -58,6 +58,24 @@
          if ($con->query($sql_query) === TRUE)
          {
             echo "New Product Added Successfully !";
+            echo 
+            "<div id='complete-dialog' class='modal fade' tabindex='-1'> ".
+              "<div class='modal-dialog'> ".
+               " <div class='modal-content'> ".
+                  "<div class='modal-header'> ".
+                   "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button> ".
+                    "<h4 class='modal-title'>Dialog</h4> ".
+                  "</div> ".
+                 " <div class='modal-body'> ".
+                  "  <p>Added</p> ".
+                  "</div> ".
+                  "<div class='modal-footer'> ".
+                    "<button class='btn btn-primary' data-dismiss='modal'>Dismiss</button> ".
+                 " </div> ".
+                "</div> ".
+             " </div> ".
+           " </div> ";
+
          }
 
           else
@@ -80,6 +98,8 @@
         <title>Innerchef</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
         <script src="jquery-2.1.4.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js.map"></script>
