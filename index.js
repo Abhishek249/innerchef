@@ -1,23 +1,26 @@
-console.log("index.js called");
-
-function mydelete(id)
+$(function() 
 {
-	console.log(id);
-	
-	$.ajax(
+	$(".delete").click(function()
 	{
-    url: 'delete_product.php',
-    type: 'GET',
-    data: 'id=' + id,
-
-    success: function(result)
-     {
-     	console.log("ajax call was successfull");   
-     	
-            window.location.href='index.php';
-        
-     }
+		var element = $(this);
+		var id = element.attr("id");
+		var dataString = 'id=' + id;
+		console.log($(this));
+		console.log($(this).closest('tr'));
+		
+		   $.ajax({
+			   type: "GET",
+			   url: "delete_product.php",
+			   data: dataString,
+			   success: function()
+			   {
+			   		console.log("ajax called successfully !")        
+			   }
+		     });
+		    
+		    $(this).closest('tr').hide('slow', function(){ $target.remove(); });
+		
+		return false;
 	});
 
-
-}
+});

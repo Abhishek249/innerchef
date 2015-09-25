@@ -15,10 +15,12 @@ include_once 'dbconfig.php';
         <script src="jquery-2.1.4.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js.map"></script>
+
+       
     </head>
 <body>
     <div class="container-fluid">
-
+    
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
             <div class="navbar-header">
@@ -34,11 +36,15 @@ include_once 'dbconfig.php';
             </div>
         </div>
     </div>
-        <br><br><br><br>
+
+        <br><br><br>
+       
+        
+
         <div class="row ">
             <div class='col-md-2'></div>
             <div class='col-md-8'>
-                <table class="table table-striped table-hover ">
+                <table class="table table-striped table-hover" id="product_list_table">
                     <thead>
                         <tr>
                             
@@ -48,7 +54,7 @@ include_once 'dbconfig.php';
                             <th>Price</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="product_list_table_body">
                         
                          <?php
                              $sql_query="SELECT * FROM products";
@@ -59,7 +65,7 @@ include_once 'dbconfig.php';
                                 while($row = $result->fetch_assoc())
                                 {
                                     ?>
-                                        <tr>
+                                        <tr id="row_id#<?php echo $row["product_id"] ?>">
                                             <td><?php echo $row["product_id"];  ?></td>
                                             <td><?php echo $row["product_name"]; ?></td>
                                             <td><?php echo $row["product_category"]; ?></td>
@@ -82,7 +88,7 @@ include_once 'dbconfig.php';
 
                                            <!-- 2 ways: call JS func and ajax in it ,2:-directly refer to php with param in url -->
                                            <!-- <td align="center"><a href='delete_product.php?id=<?php echo $row["product_id"] ;?> '><i class="mdi-action-delete"></i><span></span></a></td> -->
-                                            <td align="center"><a href="#" onclick="mydelete('<?php echo $row["product_id"]; ?>')"><i class="mdi-action-delete"></i><span></span></a></td>
+                                            <td align="center"><a href="#" class="delete" id="<?php echo $row["product_id"]; ?>" ><i class="mdi-action-delete"></i><span></span></a></td>
                                        </tr>
                                     <?php
                                 }
@@ -92,7 +98,7 @@ include_once 'dbconfig.php';
                         ?>
                          <tr>
                             <!--<th colspan="5"><a href="add_product.php">Add New Product</a></th> -->
-                            <th colspan="5"><a href="add_product.php" class="btn btn-info btn-raised mdi-content-add"></a></th>
+                            <th colspan="6"><a href="add_product.php" class="btn btn-info btn-raised mdi-content-add"></a></th>
 
                         </tr>
                         
@@ -101,8 +107,8 @@ include_once 'dbconfig.php';
             </div>
             <div class='col-md-2'></div>
         </div>
+        </div> <!--end of waiting -->
 
-    </div>
     
     
     <script type="text/javascript" src="index.js"></script>

@@ -1,1 +1,21 @@
-'<?php echo $row["product_id"] ?>'
+ <!--Loading progress bar 
+        <script type="text/javascript">
+            $(document).ready(function(){
+              $({property: 0}).animate({property: 100}, {
+                duration: 2000,
+                step: function() {
+                  var _percent = Math.round(this.property);
+                  $("#progress").css("width",  _percent+"%");
+                  if(_percent == 100) {
+                    $("#progress").hide();
+                  }
+                },
+                complete: function() {
+                  console.log("Home page load complete");
+                }
+              });
+            });
+        </script>
+        -->
+
+        <!-- <div id="progress" class="waiting" style="height:6px;background-color:#64b483"></div> <!--end of container fluid -->
