@@ -65,7 +65,7 @@ include_once 'dbconfig.php';
                                 while($row = $result->fetch_assoc())
                                 {
                                     ?>
-                                        <tr id="row_id#<?php echo $row["product_id"] ?>">
+                                        <tr id="row_id#<?php echo $row["product_id"] ?>" class="item_rows">
                                             <td><?php echo $row["product_id"];  ?></td>
                                             <td><?php echo $row["product_name"]; ?></td>
                                             <td><?php echo $row["product_category"]; ?></td>
@@ -96,13 +96,20 @@ include_once 'dbconfig.php';
                             }
                              
                         ?>
-                         <tr>
-                            <!--<th colspan="5"><a href="add_product.php">Add New Product</a></th> -->
-                            <th colspan="6"><a href="add_product.php" class="btn btn-info btn-raised mdi-content-add"></a></th>
-
-                        </tr>
+                                           
                         
                     </tbody>
+
+                    <tfoot>
+                         <tr>
+                            <!--<th colspan="5"><a href="add_product.php">Add New Product</a></th> -->
+                           <!-- <th colspan="6"><a href="#" class="btn btn-info btn-raised mdi-content-add" id="add_product"></a></th> -->
+                           <td>
+                               <a href="#" id="add_product" class="btn btn-info btn-raised mdi-content-add"></a>
+                           </td>
+
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <div class='col-md-2'></div>
